@@ -1,7 +1,10 @@
 :root {
   --primary-color: #ff5f14;
   --bg: #010101;
+  --bg-light: #111; /* Warna abu gelap untuk variasi section */
+  --text-grey: #d2d2d2;
 }
+
 * {
   font-family: "Lato", sans-serif;
   margin: 0;
@@ -9,87 +12,307 @@
   box-sizing: border-box;
   outline: none;
   border: none;
-  text-emphasis: none;
+  text-decoration: none; /* Mengganti text-emphasis */
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Lato", sans-serif;
   background-color: var(--bg);
   color: #fff;
+  animation: fadeInPage 0.3s ease-in;
 }
-/*Navbar*/
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(50px); /* Geser ke bawah 50px */
+  transition: all 0.8s ease; /* Durasi animasi */
+}
+
+/* Class ini akan ditambahkan oleh JS saat elemen terlihat */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0); /* Kembali ke posisi asal */
+}
+
+/* 3. Hover Effect Tambahan untuk Card */
+.feature-card,
+.packet-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.feature-card:hover,
+.packet-card:hover {
+  transform: translateY(-10px); /* Naik ke atas saat di-hover */
+  box-shadow: 0 10px 20px rgba(255, 95, 20, 0.2); /* Bayangan oranye */
+  border-color: var(--primary-color);
+}
+
+/* 4. Hover Effect Tombol */
+.cta-btn,
+.btn-cek {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.btn-cek:hover {
+  transform: scale(1.05); /* Membesar sedikit */
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
+/* --- NAVBAR (Kode Anda) --- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 4%;
-  padding-right: 4%;
+  padding: 1rem 4%; /* Disesuaikan agar pas vertikal */
   width: 100%;
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  /* --- UBAH BAGIAN INI --- */
-  background-color: rgba(0, 0, 0, 0.3); /* Hitam dengan transparansi 50% */
-
-  /* Opsional: Tambahkan efek blur agar terlihat modern */
-  backdrop-filter: blur(0.3px);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px); /* Sedikit diperkuat blurnya */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar .nav-logo {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.5rem;
-  gap: 1px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar .nav-logo img {
-  height: 8rem;
+  height: 5rem; /* Ukuran logo disesuaikan agar navbar tidak terlalu besar */
   width: auto;
 }
 
-.navbar .nav-logo span {
-  color: var(--primary-color);
-}
 .navbar .navbar-nav a {
   text-decoration: none;
-  color: #d2d2d2;
-  padding: 0 1rem; /* Padding kiri-kanan saja agar tidak terlalu tinggi */
-  font-size: 1.3rem;
+  color: var(--text-grey);
+  padding: 0 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .navbar .navbar-nav a:hover {
-  color: #ff5f14; /* Warna saat mouse diarahkan (opsional) */
+  color: var(--primary-color);
 }
 
-#search-icon {
-  font-size: 1.2rem;
-  color: #d2d2d2;
-  cursor: pointer;
-  transition: color 0.3s ease;
+.navbar-extra a {
+  color: var(--text-grey);
+  margin-left: 1rem;
 }
-#search-icon:hover {
+.navbar-extra a:hover {
   color: var(--primary-color);
 }
-/*Menu*/
+
 #menu-icon {
-  font-size: 1.5rem;
-  color: #d2d2d2;
-  cursor: pointer;
   display: none;
-  transition: color 0.3s ease;
 }
-#menu-icon:hover {
+
+/* --- HERO SECTION (Kode Anda) --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url("../FOTO/joshua-kettle-igX4iPNC4_A-unsplash\ \(1\).jpg.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%; /* Full overlay agar teks terbaca */
+  top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+}
+
+.hero .content {
+  max-width: 60rem;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.hero .content h1 {
+  font-size: 3rem;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero .content p {
+  font-size: 1.2rem;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+  font-weight: 300;
+  color: #eee;
+  max-width: 500px;
+}
+
+/* --- TAMBAHAN UNTUK SECTION ABOUT & PACKET --- */
+
+/* Layout Dasar */
+.section-pad {
+  padding: 5rem 7%; /* Memberi jarak atas bawah */
+}
+
+.bg-light {
+  background-color: var(--bg-light); /* Warna background selang-seling */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Grid System untuk About */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--primary-color);
 }
-/* LAPTOP */
-@media (max-width: 1366px) {
-  html {
-    font-size: 75%;
-  }
+
+.feature-card p {
+  color: var(--text-grey);
+  line-height: 1.6;
 }
+
+/* Text Content & Button */
+.text-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.8;
+  color: #ccc;
+}
+.text-content p {
+  margin-bottom: 1.5rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 30px; /* Membuat tombol bulat */
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background-color: #e04e10;
+  transform: scale(1.05);
+}
+
+/* --- FOOTER (Diperbarui agar Flexbox) --- */
+footer {
+  background-color: #000;
+  padding: 4rem 7% 1rem;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #222;
+  gap: 2rem;
+}
+
+.f-left h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.f-left p {
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.f-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.f-right a {
+  color: #fff;
+  text-align: right;
+  transition: 0.3s;
+}
+
+.f-right a:hover {
+  color: var(--primary-color);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
 
 /* TABLET */
 @media (max-width: 768px) {
@@ -99,112 +322,51 @@ body {
 
   #menu-icon {
     display: inline-block;
+    color: #fff;
   }
 
   .navbar .navbar-nav {
     position: absolute;
     top: 100%;
     right: -100%;
-    padding-left: 2rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(0.3px);
-    width: 100%;
+    width: 70%;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Lebih gelap untuk mobile */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transition: 0.3s;
   }
 
   .navbar .navbar-nav.active {
     right: 0;
   }
-
   .navbar .navbar-nav a {
-    color: #d2d2d2;
+    font-size: 2rem;
+    margin: 1.5rem 0;
     display: block;
-    margin: 1.5rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
   }
 
-  .navbar .navbar-nav a::after {
-    transform-origin: 0 0;
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
   }
-
-  .navbar .navbar-nav a:hover::after {
-    transform: scaleX(0.2);
+  .f-right {
+    align-items: center;
   }
-
-  .about .row {
-    flex-wrap: nowrap;
-  }
-
-  .contact .row {
-    flex-wrap: wrap;
-  }
-
-  .contact .row .map {
-    height: 30rem;
-  }
-
-  .contact .row form {
-    padding-top: 0;
+  .f-right a {
+    text-align: center;
   }
 }
 
-/* MOBILE PHONE */
+/* MOBILE */
 @media (max-width: 450px) {
   html {
     font-size: 55%;
   }
-}
-
-/* --- HERO SECTION STYLES --- */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center; /* Pusatkan vertikal */
-  justify-content: center; /* Pusatkan horizontal */
-  text-align: center; /* Teks rata tengah */
-  background-image: url("../FOTO/joshua-kettle-igX4iPNC4_A-unsplash\ \(1\).jpg.jpeg"); /* Sesuaikan path gambar Anda */
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Warna overlay gelap */
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 70%;
-  bottom: 0;
-  background: linear-gradient(
-    opacity(1),
-    0deg,
-    rgb(0, 0, 0) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
-
-.hero .content {
-  max-width: 60rem;
-  z-index: 1; /* Supaya teks di atas layer gradien */
-  padding: 0 20px;
-}
-
-.hero .content h1 {
-  font-size: 2.7rem;
-  color: #d2d2d2;
-  line-height: 3.5rem;
-  opacity: 0.8;
-}
-
-.hero .content p {
-  font-size: 1.2rem;
-  margin: 0.5rem auto 1.5rem auto; /* Margin auto untuk menjaga keseimbangan tengah */
-  line-height: 1.7rem;
-  font-weight: 300;
-  color: #eee;
-  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-  opacity: 0.7;
+  .hero .content h1 {
+    font-size: 2.2rem;
+  }
 }

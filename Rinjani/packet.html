@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Packet List - Deddy Rinjanitrekker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+      /* CSS Khusus Halaman Ini untuk Booking Steps */
+      .step-container {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+        text-align: center;
+      }
+      .step-circle {
+        width: 80px;
+        height: 80px;
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 2.5rem;
+        font-weight: bold;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem auto;
+        box-shadow: 0 0 15px rgba(255, 95, 20, 0.5);
+      }
+      .class-options {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        font-weight: bold;
+        color: #fff;
+      }
+      .class-options span {
+        color: var(--primary-color);
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <img
+          src="/FOTO/D9DED659-001E-4A30-B17F-4FFF5E639844-Photoroom.png"
+          alt="logo"
+        />
+      </a>
+
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+
+        <a href="#" style="color: var(--primary-color)">Packet</a>
+
+        <a href="index.html#about">About us</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="search-icon"><i data-feather="search"></i></a>
+        <a href="#" id="menu-icon"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+
+    <section
+      class="hero"
+      style="
+        min-height: 50vh;
+        background-image: url(&quot;../FOTO/gunung2.jpg&quot;);
+      "
+    >
+      <main class="content">
+        <h1>PAKET PENDAKIAN</h1>
+        <p>Pilih petualangan terbaik Anda menuju puncak Rinjani</p>
+      </main>
+    </section>
+
+    <section class="section-pad">
+      <div class="container">
+        <h2 class="section-title">PILIHAN HOTEL</h2>
+        <div class="text-content">
+          <p>
+            The difference between the VIP and VVIP packages lies in the hotel
+            accommodations provided before the hike. Below is a list of hotels
+            you can choose:
+          </p>
+        </div>
+
+        <div class="feature-grid" style="margin-top: 2rem">
+          <div class="feature-card">
+            <h3>Sembalun Area</h3>
+            <p>Standard / Deluxe Room near Basecamp.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Senaru Area</h3>
+            <p>Traditional Lodge with Waterfall View.</p>
+          </div>
+          <div class="feature-card">
+            <h3>City Hotel</h3>
+            <p>Transit Hotel in Mataram/Senggigi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad bg-light">
+      <div class="container">
+        <h2 class="section-title">Booking mode as easy as 1-2-3</h2>
+
+        <div class="step-container">
+          <div class="step-item">
+            <div class="step-circle">1</div>
+            <h3>Pick Your Track</h3>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">2</div>
+            <h3>Pick Your Packet</h3>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">3</div>
+            <h3>Pick Your Class</h3>
+          </div>
+        </div>
+
+        <div style="margin-top: 4rem">
+          <h3 style="text-align: center; color: #d2d2d2; margin-bottom: 1rem">
+            Class yang kami Tawarkan
+          </h3>
+          <div class="class-options">
+            <span>DELUXE</span> | <span>STANDARD</span> | <span>SHARING</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="container">
+        <h2 class="section-title">DAFTAR HARGA</h2>
+
+        <div class="feature-grid">
+          <div class="feature-card" style="text-align: center">
+            <div
+              style="
+                height: 180px;
+                background-color: #333;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+              "
+            ></div>
+            <h3>2 Days 1 Night</h3>
+            <p>Start Sembalun - Summit</p>
+            <hr style="border-top: 1px solid #333; margin: 1rem 0" />
+            <a
+              href="#"
+              class="cta-btn"
+              style="margin-top: 1rem; font-size: 0.9rem"
+              >CEK DETAIL</a
+            >
+          </div>
+
+          <div class="feature-card" style="text-align: center">
+            <div
+              style="
+                height: 180px;
+                background-color: #333;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+              "
+            ></div>
+            <h3>3 Days 2 Nights</h3>
+            <p>Summit & Lake Segara Anak</p>
+            <hr style="border-top: 1px solid #333; margin: 1rem 0" />
+            <a
+              href="#"
+              class="cta-btn"
+              style="margin-top: 1rem; font-size: 0.9rem"
+              >CEK DETAIL</a
+            >
+          </div>
+
+          <div class="feature-card" style="text-align: center">
+            <div
+              style="
+                height: 180px;
+                background-color: #333;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+              "
+            ></div>
+            <h3>4 Days 3 Nights</h3>
+            <p>Full Trekking Experience</p>
+            <hr style="border-top: 1px solid #333; margin: 1rem 0" />
+            <a
+              href="#"
+              class="cta-btn"
+              style="margin-top: 1rem; font-size: 0.9rem"
+              >CEK DETAIL</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="f-left">
+          <h3>Contact Us</h3>
+          <p>Welcome to our web!</p>
+          <p>Perjalanan aman dan nyaman menuju puncak Rinjani.</p>
+        </div>
+        <div class="f-right">
+          <a href="index.html">HOME</a>
+          <a href="#packet">PACKET</a>
+          <a href="index.html#about">ABOUT</a>
+          <a href="index.html#contact">CONTACT</a>
+        </div>
+      </div>
+      <div class="copyright">copyright @ 2026 jjah | hgahg by nafis</div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
