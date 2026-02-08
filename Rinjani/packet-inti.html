@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pilihan Paket - Deddy Rinjanitrekker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <img
+          src="/FOTO/D9DED659-001E-4A30-B17F-4FFF5E639844-Photoroom.png"
+          alt="logo"
+        />
+      </a>
+
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#packet" style="color: var(--primary-color)"
+          >Packet</a
+        >
+        <a href="index.html#about">About us</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="search-icon"><i data-feather="search"></i></a>
+        <a href="#" id="menu-icon"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+    <section class="booking-section">
+      <div class="container">
+        <div class="booking-header-text">
+          <h1>Book your track</h1>
+        </div>
+
+        <div class="booking-box">
+          <h3 class="box-title">One Way</h3>
+          <div class="divider-line"></div>
+
+          <form action="#" class="booking-form">
+            <div class="form-row">
+              <div class="input-group">
+                <select id="track" required>
+                  <option value="" disabled selected>Track</option>
+                  <option value="sembalun">Sembalun</option>
+                  <option value="senaru">Senaru</option>
+                  <option value="timbanuh">Timbanuh</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <select id="packet" required>
+                  <option value="" disabled selected>Packet</option>
+                  <option value="sharing">Sharing</option>
+                  <option value="standard">Standard</option>
+                  <option value="deluxe">Deluxe</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row full-width">
+              <div class="input-group">
+                <input
+                  type="text"
+                  onfocus="this.type = 'date'"
+                  placeholder="Departure Date"
+                  id="date"
+                  required
+                />
+                <i data-feather="calendar" class="calendar-icon"></i>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <input
+                  type="number"
+                  placeholder="Passengers"
+                  min="1"
+                  id="passengers"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <select id="class" required>
+                  <option value="" disabled selected>Class</option>
+                  <option value="vip">VIP</option>
+                  <option value="vvip">VVIP</option>
+                  <option value="regular">Regular</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="check-price-btn">Check Price</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="hero-packet">
+      <div class="hero-overlay"></div>
+      <div class="hero-text">
+        <h1>PILIHAN KELAS</h1>
+        <p>Sesuaikan kenyamanan pendakian dengan kebutuhan Anda</p>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-wrapper">
+          <div class="pricing-card">
+            <div class="card-top">
+              <h3>SHARING</h3>
+              <p class="subtitle">Join Group</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li><i data-feather="check"></i> Tiket Taman Nasional</li>
+                <li><i data-feather="check"></i> Guide Berlisensi</li>
+                <li><i data-feather="check"></i> Porter (Tenda & Logistik)</li>
+                <li><i data-feather="check"></i> Makan 3x Sehari</li>
+                <li><i data-feather="check"></i> Tenda Kapasitas 4 (Isi 4)</li>
+                <li class="disable">
+                  <i data-feather="x"></i> Hotel di Sembalun
+                </li>
+                <li class="disable"><i data-feather="x"></i> Private Porter</li>
+              </ul>
+              <a
+                href="https://wa.me/6281234567890?text=Saya%20tertarik%20paket%20Sharing"
+                class="btn-book"
+                >BOOK NOW</a
+              >
+            </div>
+          </div>
+
+          <div class="pricing-card popular">
+            <div class="best-seller-badge">MOST POPULAR</div>
+            <div class="card-top">
+              <h3>STANDARD</h3>
+              <p class="subtitle">Private / Couple</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li><i data-feather="check"></i> Tiket Taman Nasional</li>
+                <li><i data-feather="check"></i> Guide Senior</li>
+                <li><i data-feather="check"></i> Porter (Tenda & Logistik)</li>
+                <li><i data-feather="check"></i> Makan + Buah & Snack</li>
+                <li>
+                  <i data-feather="check"></i>
+                  <strong>Tenda Kapasitas 4 (Isi 2)</strong>
+                </li>
+                <li>
+                  <i data-feather="check"></i>
+                  <strong>Homestay Sembalun</strong>
+                </li>
+                <li class="disable"><i data-feather="x"></i> Private Porter</li>
+              </ul>
+              <a
+                href="https://wa.me/6281234567890?text=Saya%20tertarik%20paket%20Standard"
+                class="btn-book filled"
+                >BOOK NOW</a
+              >
+            </div>
+          </div>
+
+          <div class="pricing-card">
+            <div class="card-top">
+              <h3>DELUXE</h3>
+              <p class="subtitle">VIP Service</p>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li><i data-feather="check"></i> Tiket Taman Nasional</li>
+                <li><i data-feather="check"></i> Guide Senior & Fotografer</li>
+                <li><i data-feather="check"></i> Porter Tim Lengkap</li>
+                <li><i data-feather="check"></i> Menu Makanan Spesial</li>
+                <li>
+                  <i data-feather="check"></i>
+                  <strong>Tenda Mewah + Kasur</strong>
+                </li>
+                <li>
+                  <i data-feather="check"></i>
+                  <strong>Hotel Bintang (Senggigi)</strong>
+                </li>
+                <li>
+                  <i data-feather="check"></i>
+                  <strong>1 Porter Per Tamu</strong>
+                </li>
+              </ul>
+              <a
+                href="https://wa.me/6281234567890?text=Saya%20tertarik%20paket%20Deluxe"
+                class="btn-book"
+                >BOOK NOW</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="f-left">
+          <h3>Contact Us</h3>
+          <p>Welcome to our web!</p>
+          <p>Perjalanan aman dan nyaman menuju puncak Rinjani.</p>
+        </div>
+        <div class="f-right">
+          <a href="index.html#about">About us</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="copyright">copyright @ 2026 jjah | hgahg by nafis</div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

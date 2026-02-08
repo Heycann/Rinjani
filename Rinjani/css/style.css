@@ -23,6 +23,14 @@ body {
   color: var(--text-color);
   overscroll-behavior: contain;
   overflow-x: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.5s ease-in;
+}
+body.loaded {
+  opacity: 1;
+  transform: none;
 }
 /* --- NAVBAR --- */
 .navbar {
@@ -125,11 +133,38 @@ body {
   color: var(--text-muted);
   line-height: 1.2;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  text-transform: uppercase;
   opacity: 0.9;
 }
+.hero .content h1 .welcome-text {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 5px;
+  color: #e0e0e0;
+}
 
-.hero .content h1 span.highlight {
-  color: var(--primary-color);
+.hero .content h1 .brand-text {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  letter-spacing: 1px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero .content h1 .welcome-text {
+    font-size: 1.5rem;
+  }
+  .hero .content h1 .brand-text {
+    font-size: 2.5rem;
+  }
+
+  .hero .content h1 span.highlight {
+    color: var(--primary-color);
+  }
 }
 
 .hero .content p {
@@ -714,5 +749,344 @@ footer {
     width: 50px;
     height: 50px;
     font-size: 1.8rem;
+  }
+}
+/* --- STYLE HALAMAN PACKET INTI (TAMPILAN CARD PROFESIONAL) --- */
+
+/* Hero Kecil di Atas */
+.hero-packet {
+  height: 50vh;
+  background-image: url("https://images.unsplash.com/photo-1545562083-a600704fa46e?q=80&w=1935&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px; /* Jarak dari navbar */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Gelap transparan */
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+/* Container Pricing */
+.pricing-section {
+  padding: 5rem 2rem;
+  background-color: var(--bg-color);
+}
+
+.pricing-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: stretch; /* Agar tinggi kartu sama rata */
+}
+
+/* Desain Kartu (Mirip Foto) */
+.pricing-card {
+  background-color: #121212; /* Warna dasar kartu hitam pekat */
+  border: 1px solid #333;
+  width: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px); /* Naik sedikit saat di-hover */
+  border-color: var(--primary-color);
+}
+
+/* Header Kartu */
+.card-top {
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.card-top h3 {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.card-top .subtitle {
+  color: var(--primary-color);
+  font-size: 1rem;
+  margin-top: 5px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Isi Fitur (List) */
+.card-content {
+  padding: 2rem;
+  flex: 1; /* Mengisi ruang kosong */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-content ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.card-content ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ddd;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.card-content ul li i {
+  color: var(--primary-color);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Item Disable (Silang / Abu-abu) */
+.card-content ul li.disable {
+  color: #555;
+  text-decoration: line-through;
+}
+.card-content ul li.disable i {
+  color: #555;
+}
+
+/* Tombol Booking */
+.btn-book {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.btn-book:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* --- KARTU TENGAH (POPULAR) --- */
+.pricing-card.popular {
+  transform: scale(1.05); /* Lebih besar dari yang lain */
+  border: 2px solid var(--primary-color);
+  background-color: #1a1a1a;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(255, 95, 20, 0.15);
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.btn-book.filled {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-book.filled:hover {
+  background-color: #e04e10;
+}
+
+/* Badge Popular di Pojok */
+.best-seller-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .pricing-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .pricing-card.popular {
+    transform: scale(1);
+    margin: 1rem 0;
+  }
+
+  .pricing-card.popular:hover {
+    transform: translateY(-5px);
+  }
+}
+/* --- BOOKING WIDGET STYLE (Check Price) --- */
+
+.booking-section {
+  padding: 100px 5% 4rem; /* Padding atas besar agar lepas dari Navbar */
+  background-color: var(--bg-color);
+}
+
+.booking-header-text h1 {
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400; /* Font agak tipis sesuai gambar */
+}
+
+/* Kotak Oranye Utama */
+.booking-box {
+  background-color: var(--primary-color); /* Oranye */
+  border-radius: 25px;
+  padding: 2rem;
+  max-width: 600px; /* Lebar maksimal agar tidak terlalu lebar */
+  margin: 0 auto; /* Tengah */
+  box-shadow: 0 10px 30px rgba(255, 95, 20, 0.3);
+}
+
+.box-title {
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.divider-line {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5); /* Garis putih transparan */
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Grid Layout untuk Form */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-row.full-width {
+  width: 100%;
+}
+
+.input-group {
+  flex: 1; /* Input membagi rata ruang */
+  position: relative;
+}
+
+/* Style Input & Select (Abu-abu rounded) */
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #d9d9d9; /* Warna abu-abu input */
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #444;
+  font-family: "Lato", sans-serif;
+  appearance: none; /* Menghilangkan panah default select browser */
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: 2px solid #fff;
+}
+
+/* Placeholder warna gelap */
+.input-group input::placeholder {
+  color: #666;
+}
+
+/* Icon Kalender (Manual positioning) */
+.calendar-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+}
+
+/* Tombol Hitam Check Price */
+.check-price-btn {
+  background-color: #222; /* Hitam */
+  color: var(--primary-color); /* Teks Oranye */
+  border: none;
+  padding: 1.2rem;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+.check-price-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Responsif Mobile */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column; /* Input jadi atas-bawah di HP */
+    gap: 1rem;
+  }
+
+  .booking-box {
+    padding: 1.5rem;
   }
 }
