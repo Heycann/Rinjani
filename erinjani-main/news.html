@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Update</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* --- ANIMASI HALAMAN --- */
+      body {
+        animation: fadeInAnimation ease 1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        background-color: #1a1a1a; /* Warna latar belakang cadangan */
+        margin: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      @keyframes fadeInAnimation {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* --- STYLE KHUSUS NEWS SECTION --- */
+      .hero {
+        min-height: 100vh;
+        padding-top: 100px; /* Memberi jarak agar tidak tertutup Navbar */
+        padding-bottom: 50px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Judul Halaman News */
+      .section-title {
+        color: #ff5722; /* Warna Oranye sesuai tema */
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 900;
+      }
+
+      /* Grid Layout untuk Kartu Berita */
+      .news-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        width: 100%;
+      }
+
+      /* Desain Kartu Berita (Glassmorphism Dark) */
+      .news-card {
+        background: rgba(30, 30, 30, 0.9); /* Latar belakang gelap transparan */
+        border: 1px solid #333;
+        border-radius: 15px;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .news-card:hover {
+        transform: translateY(-10px); /* Efek naik saat di-hover */
+        box-shadow: 0 10px 20px rgba(255, 87, 34, 0.3); /* Bayangan oranye */
+        border-color: #ff5722;
+      }
+
+      .news-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background-color: #444; /* Placeholder warna abu jika gambar loading */
+      }
+
+      .news-content {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .news-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .news-title:hover {
+        color: #ff5722;
+      }
+
+      .news-date {
+        font-size: 0.85rem;
+        color: #aaa;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* Loading State */
+      .loading-text {
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+        width: 100%;
+        grid-column: 1 / -1;
+      }
+
+      /* --- RESPONSIVE UNTUK HP --- */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+        .hero {
+          padding-top: 80px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="#" class="navbar-logo">
+          <img src="images/logo.png" alt="Logo" style="max-height: 40px" />
+        </a>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="packet.html" class="nav-link">Packet</a>
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="news.html" class="nav-link active" style="color: #ff5722"
+            >News</a
+          >
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="navbar-icons">
+          <a href="#" id="search-btn"><i data-feather="search"></i></a>
+          <a href="#" id="menu-btn"><i data-feather="menu"></i></a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <h1 class="section-title">Latest Updates</h1>
+
+        <div id="news-container" class="news-list">
+          <p class="loading-text">Sedang memuat berita terbaru...</p>
+        </div>
+      </div>
+    </section>
+    <a
+      href="javascript:void(0)"
+      onclick="chatWhatsApp()"
+      class="wa-float"
+      id="wa-button"
+    >
+      <div class="wa-icon">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+          <path
+            d="M16 2C8.28 2 2 8.28 2 16c0 2.55.68 4.94 1.85 7.02L2.5 29.5l6.63-1.33C11.13 29.35 13.5 30 16 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.5c-2.14 0-4.18-.58-5.95-1.58l-.42-.25-4.05.81.82-3.95-.26-.44C5.12 20.3 4.5 18.2 4.5 16c0-6.35 5.15-11.5 11.5-11.5s11.5 5.15 11.5 11.5-5.15 11.5-11.5 11.5z"
+          />
+          <path
+            d="M21.8 19.9c-.32-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.16-.22.32-.86 1.06-1.05 1.28-.19.22-.38.25-.7.09-.32-.16-1.35-.5-2.57-1.58-.94-.84-1.58-1.88-1.76-2.2-.18-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.74-1.79-1.01-2.45-.26-.65-.53-.56-.74-.57h-.63c-.22 0-.58.08-.88.4-.3.32-1.16 1.13-1.16 2.76 0 1.63 1.19 3.2 1.35 3.42.16.22 2.34 3.58 5.67 5.02 2.17.94 3.01.94 4.09.8 1.18-.16 2.53-1.03 2.89-2.03.36-1 .36-1.86.25-2.03-.11-.17-.4-.27-.72-.43z"
+            fill="#fff"
+          />
+        </svg>
+      </div>
+    </a>
+
+    <script>
+      feather.replace();
+    </script>
+
+    <script>
+      const feedUrl = "https://rss.app/feeds/v1.1/tSrYTd2ILqu6zjyU.json";
+      const container = document.getElementById("news-container");
+
+      async function loadNews() {
+        try {
+          const response = await fetch(feedUrl);
+          const data = await response.json();
+
+          let htmlContent = "";
+
+          // Loop berita (Ambil max 9 berita)
+          data.items.slice(0, 9).forEach((item) => {
+            // Cek apakah ada gambar, kalau tidak pakai placeholder
+            const imageUrl = item.image
+              ? item.image
+              : "https://via.placeholder.com/400x200?text=No+Image";
+
+            // Format Tanggal
+            const date = new Date(item.date_published).toLocaleDateString(
+              "id-ID",
+              {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              },
+            );
+
+            htmlContent += `
+              <div class="news-card">
+                <img src="${imageUrl}" alt="News Image" class="news-image" loading="lazy">
+                <div class="news-content">
+                  <a href="${item.url}" target="_blank" class="news-title">
+                    ${item.title}
+                  </a>
+                  <div class="news-date">
+                    <i data-feather="calendar" style="width: 14px;"></i> ${date}
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+
+          container.innerHTML = htmlContent;
+          feather.replace(); // Refresh ikon setelah berita dimuat
+        } catch (error) {
+          container.innerHTML = `<p class="loading-text" style="color: #ff5722;">Gagal memuat berita. Cek koneksi internet anda.</p>`;
+          console.error("Error fetching news:", error);
+        }
+      }
+
+      // Jalankan fungsi saat halaman selesai dimuat
+      window.onload = loadNews;
+    </script>
+  </body>
+</html>
