@@ -13,6 +13,32 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  <style>
+        /* Style untuk Note & Inclusions */
+    .note-box {
+      background-color: #030303;
+      padding: 25px;
+      border-radius: 10px;
+      border-left: 5px solid #ff5722;
+      margin-top: 10px;
+    }
+    .inclusion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .inc-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .inc-item i {
+      color: #2ecc71; /* Warna hijau untuk centang */
+    }
+  </style>
   <body>
     <!-- Navbar Section -->
     <nav class="navbar">
@@ -24,7 +50,6 @@
           <a href="index.html" class="nav-link">Home</a>
           <a href="packet.html" class="nav-link active">Packet</a>
           <a href="about.html" class="nav-link">About Us</a>
-          <a href="news.html" class="nav-link">News</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
         <div class="navbar-icons">
@@ -42,6 +67,7 @@
         <p>Hi from Rinjani, let's start your journey.</p>
       </div>
     </section>
+
     <a
       href="javascript:void(0)"
       onclick="chatWhatsApp()"
@@ -60,6 +86,7 @@
         </svg>
       </div>
     </a>
+
     <!-- Booking Form Section -->
     <section class="section" style="padding-top: 2rem">
       <div class="container">
@@ -101,9 +128,8 @@
               <div class="input-pill">
                 <select required>
                   <option value="" disabled selected>Class</option>
-                  <option value="Sharing">Sharing</option>
-                  <option value="Standard">Standard</option>
-                  <option value="Delux">Deluxe</option>
+                  <option value="regular">Regular</option>
+                  <option value="vip">VIP</option>
                 </select>
               </div>
             </div>
@@ -155,7 +181,51 @@
         </div>
       </div>
     </section>
-
+<section class="section">
+  <div class="container">
+    <div class="note-box">
+       <h4 style="margin-top: 0; color: #ffffff">Fasilitas & Ketentuan</h4>
+            <p style="font-style: italic; color: #ffffff; font-size: 0.9rem">
+              * The budget Price for one person picks up transport is not
+              included in the price.
+            </p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0" />
+            <strong>Price Includes:</strong>
+            <div class="inclusion-grid">
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Professional Porter
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> All Camping Equipment
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Tents, Sleeping bag
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Mattress, Cooking gear
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Food and Drinks (3x/day)
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Fruits, Water, Coffee, Tea
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Toilet Tent
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Hotel (1 Night in Sembalun)
+              </div>
+              <div class="inc-item">
+                <i data-feather="check-circle"></i> Transport (Pick up/Transfer)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Info Paket Section -->
     <section class="section">
       <div class="container info-text-wrapper">

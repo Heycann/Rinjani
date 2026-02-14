@@ -103,7 +103,7 @@ loadNews();
 function chatWhatsApp() {
   // 1. Ganti dengan nomor HP Anda (format internasional tanpa '+')
   // Contoh: 6281234567890 (62 untuk Indonesia)
-  var nomorHP = "6281234567890";
+  var nomorHP = "6289652322981";
 
   // 2. Pesan otomatis yang akan muncul di chat
   var pesan = "Halo Admin, saya ingin booking paket wisata.";
@@ -114,3 +114,5 @@ function chatWhatsApp() {
   // Membuka link di tab baru
   window.open(url, "_blank");
 }
+
+//

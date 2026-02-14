@@ -13,8 +13,100 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  <style>
+    .p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* --- TAMBAHAN CSS UNTUK TABEL HARGA --- */
+    .pricing-wrapper {
+      margin-top: 30px;
+    }
+    .pricing-category {
+      margin-bottom: 50px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 30px;
+    }
+    .pricing-category h3 {
+      color: #ff5722; /* Warna oranye utama */
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      border-left: 5px solid #ff5722;
+      padding-left: 15px;
+      text-transform: uppercase;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .price-card {
+      background: #000;
+      border: 1px solid #fff; /* Border tipis */
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    .price-card:hover {
+      transform: translateY(-5px);
+      border-color: #ff5722;
+      box-shadow: 0 10px 25px rgba(255, 87, 34, 0.15);;
+    }
+    .plan-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #ffff;
+      margin-bottom: 15px;
+      display: block;
+      text-transform: uppercase;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 10px;
+    }
+    .price-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      text-align: left;
+    }
+    .price-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed #eee;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    .price-list li:last-child {
+      border-bottom: none;
+    }
+    .price-val {
+      font-weight: bold;
+      color: #ffff;
+    }
+    .book-btn-outline {
+      display: inline-block;
+      width: 100%;
+      padding: 10px 0;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .book-btn-outline:hover {
+      background-color: #ff5722;
+      color: #fff;
+    }
+
+
+  </style>
   <body>
-    <!-- Navbar Section -->
     <nav class="navbar">
       <div class="container navbar-container">
         <a href="index.html" class="navbar-logo">
@@ -34,7 +126,6 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero hero-small">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -42,7 +133,8 @@
         <p>Pilih petualangan terbaik Anda di Gunung Rinjani</p>
       </div>
     </section>
- <a
+
+    <a
       href="javascript:void(0)"
       onclick="chatWhatsApp()"
       class="wa-float"
@@ -61,7 +153,6 @@
       </div>
     </a>
 
-    <!-- Orange Explanation Section -->
     <section class="section orange-section">
       <div class="container">
         <div class="row">
@@ -91,7 +182,6 @@
       </div>
     </section>
 
-    <!-- Packets Grid Section -->
     <section class="section">
       <div class="container">
         <div class="section-header text-center">
@@ -157,7 +247,6 @@
       </div>
     </section>
 
-    <!-- Steps Section -->
     <section class="section bg-dark">
       <div class="container">
         <h3 class="text-primary mb-1">Booking mode as easy as 1-2-3</h3>
@@ -178,112 +267,169 @@
       </div>
     </section>
 
-    <!-- Pricing Grid Section -->
     <section class="section">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="text-primary" style="text-transform: uppercase">
-            Class yang kami Tawarkan
-          </h2>
-          <p>Pilih tingkat kenyamanan layanan Anda</p>
-        </div>
-        <div class="pricing-grid">
-          <div class="pricing-card">
-            <div class="pricing-header">
-              <h3>SHARING</h3>
-              <p>Join Group / Open Trip</p>
-            </div>
-            <div class="pricing-body">
-              <ul>
-                <li>
-                  <i data-feather="check" class="text-primary"></i> Tiket Taman
-                  Nasional
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i> Guide
-                  Berlisensi
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i> Porter
-                  (Tenda & Logistik)
-                </li>
-                <li class="disabled">
-                  <i data-feather="x"></i> Hotel di Sembalun
-                </li>
-              </ul>
-            </div>
-            <div class="pricing-footer">
-              <a href="packet-inti.html" class="btn btn-outline btn-block"
-                >SHARING</a
-              >
-            </div>
-          </div>
-          <div class="pricing-card">
-            <div class="pricing-header">
-              <h3>STANDARD</h3>
-              <p>Private / Couple Trip</p>
-            </div>
-            <div class="pricing-body">
-              <ul>
-                <li>
-                  <i data-feather="check" class="text-primary"></i> Semua
-                  Fasilitas Sharing
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i> Guide Senior
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i>
-                  <strong>Tenda Kap. 4 (Isi 2)</strong>
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i>
-                  <strong>Hotel Senggigi/Sembalun<strong>
-                </li>
-              </ul>
-            </div>
-            <div class="pricing-footer">
-              <a href="packet-inti.html" class="btn btn-outline btn-block"
-                >STANDARD</a
-              >
+        <h2 class="text-primary text-center" style="margin-bottom: 40px">
+          PRICE INFO
+        </h2>
+
+        <div class="pricing-wrapper">
+          <div class="pricing-category">
+            <h3>2 Days 1 Night Package</h3>
+            <div class="pricing-grid">
+              <div class="price-card">
+                <span class="plan-name">Deluxe</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
+              <div class="price-card">
+                <span class="plan-name">Standard</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
+              <div class="price-card">
+                <span class="plan-name">Sharing</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
             </div>
           </div>
-          <div class="pricing-card">
-            <div class="pricing-header">
-              <h3>DELUXE</h3>
-              <p>VIP Full Service</p>
-            </div>
-            <div class="pricing-body">
-              <ul>
-                <li>
-                  <i data-feather="check" class="text-primary"></i> Fasilitas
-                  Standard
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i> Guide &
-                  Fotografer
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i>
-                  <strong>Tenda Mewah + Kasur</strong>
-                </li>
-                <li>
-                  <i data-feather="check" class="text-primary"></i>
-                  <strong>Hotel Senggigi/Sembalun</strong>
-                </li>
-              </ul>
-            </div>
-            <div class="pricing-footer">
-              <a href="packet-inti.html" class="btn btn-outline btn-block"
-                >DELUXE</a
-              >
+
+          <div class="pricing-category">
+            <h3>3 Days 2 Nights Package</h3>
+            <div class="pricing-grid">
+              <div class="price-card">
+                <span class="plan-name">Deluxe</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
+              <div class="price-card">
+                <span class="plan-name">Standard</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
+              <div class="price-card">
+                <span class="plan-name">Sharing</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+
+          <div class="pricing-category" style="border-bottom: none">
+            <h3>4 Days 3 Nights Package</h3>
+            <div class="pricing-grid">
+              <div class="price-card">
+                <span class="plan-name">Deluxe</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
+              <div class="price-card">
+                <span class="plan-name">Standard</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
+              <div class="price-card">
+                <span class="plan-name">Sharing</span>
+                <ul class="price-list">
+                  <li>
+                    <span>1 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>2-4 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                  <li>
+                    <span>5-10 Pax</span> <span class="price-val">$500</span>
+                  </li>
+                </ul>
+                <a href="packet-inti.html" class="book-btn-outline">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          
     </section>
 
-    <!-- Footer Section -->
     <footer class="footer" id="contact">
       <div class="container">
         <div class="footer-row">
@@ -313,5 +459,8 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
